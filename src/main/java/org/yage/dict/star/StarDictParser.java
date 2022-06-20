@@ -65,12 +65,10 @@ public class StarDictParser {
                 need = indirectResults.size();
             }
             indirectResults = indirectResults.subList(0, need);
-            Collections.sort(indirectResults, WordComparator);
         } else {
             indirectResults = Collections.emptyList();
         }
 
-        Collections.sort(directResults, WordComparator);
         directResults.addAll(indirectResults);
         return directResults;
     }
@@ -219,11 +217,4 @@ public class StarDictParser {
     /**
      * customer comparator
      */
-    private static Comparator<Map.Entry<String, WordPosition>> WordComparator = new Comparator<Map.Entry<String, WordPosition>>() {
-        public int compare(Map.Entry<String, WordPosition> ea, Map.Entry<String, WordPosition> eb) {
-            int l1 = ea.getKey().length();
-            int l2 = eb.getKey().length();
-            return l1 < l2 ? -1 : l1 > l2 ? 1 : 0;
-        }
-    };
 }
